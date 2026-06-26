@@ -12,10 +12,10 @@ const Footer = () => {
             </div>
             <p className="text-gray-600 dark:text-gray-400 max-w-sm mb-6 transition-colors duration-500">Master the art of full-stack web development with our comprehensive, project-based curriculum.</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary/20 transition-all"><FaTwitter size={18} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary/20 transition-all"><FaLinkedin size={18} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary/20 transition-all"><FaGithub size={18} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary/20 transition-all"><FaYoutube size={18} /></a>
+              <button onClick={() => window.open('https://twitter.com', '_blank')} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaTwitter size={18} /></button>
+              <button onClick={() => window.open('https://linkedin.com', '_blank')} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaLinkedin size={18} /></button>
+              <button onClick={() => window.open('https://github.com', '_blank')} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaGithub size={18} /></button>
+              <button onClick={() => window.location.href = 'mailto:hello@example.com'} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaYoutube size={18} /></button>
             </div>
           </div>
           
