@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import { useModal } from '../../context/ModalContext';
+import SectionHeading from '../ui/SectionHeading';
 
 const Curriculum = () => {
+  const { openModal } = useModal();
   const modules = [
     {
       id: '01',
@@ -25,28 +28,41 @@ const Curriculum = () => {
     }
   ];
 
+  const handleModuleClick = (module) => {
+    openModal(
+      `${module.title} Curriculum`,
+      <div className="space-y-4">
+        <p className="text-gray-600 dark:text-gray-400">Dive deep into {module.title}. This module covers everything you need to know.</p>
+        <div className="grid grid-cols-2 gap-4 my-4">
+          <div className="p-4 bg-gray-100 dark:bg-white/5 rounded-xl">
+            <h5 className="font-bold text-gray-900 dark:text-white mb-1">Duration</h5>
+            <p className="text-sm text-gray-600 dark:text-gray-400">4 Weeks</p>
+          </div>
+          <div className="p-4 bg-gray-100 dark:bg-white/5 rounded-xl">
+            <h5 className="font-bold text-gray-900 dark:text-white mb-1">Projects</h5>
+            <p className="text-sm text-gray-600 dark:text-gray-400">3 Mini Projects</p>
+          </div>
+        </div>
+        <h5 className="font-bold text-gray-900 dark:text-white mb-2 mt-4">Topics Covered:</h5>
+        <ul className="space-y-2">
+          {module.topics.map((t, i) => (
+            <li key={i} className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+              <CheckCircle2 size={16} className="text-primary" /> {t}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <section id="curriculum" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-5xl">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="heading-lg mb-4"
-          >
-            Course Curriculum
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-500"
-          >
-            A step-by-step roadmap to take you from a beginner to a job-ready full-stack developer.
-          </motion.p>
-        </div>
+        <SectionHeading
+          badge="Learning Roadmap"
+          title={<>Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-secondary">Step-by-Step</span> Journey</>}
+          subtitle="A carefully structured curriculum that takes you from absolute beginner to a job-ready full-stack developer. Every module builds on the last."
+        />
 
         <div className="relative">
           {/* Timeline Line */}
@@ -66,7 +82,10 @@ const Curriculum = () => {
                 <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-background border-4 border-primary shadow-[0_0_15px_rgba(59,130,246,0.8)] -translate-x-1/2 z-10 transition-colors duration-500" />
 
                 <div className="w-full md:w-[45%] pl-12 md:pl-0">
-                  <div className={`glass-card p-6 rounded-2xl hover:border-primary/30 transition-colors duration-500 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                  <div 
+                    onClick={() => handleModuleClick(module)}
+                    className={`glass-card p-6 rounded-2xl hover:border-primary/30 transition-colors duration-500 cursor-pointer ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
+                  >
                     <div className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-2 tracking-widest uppercase">
                       Module {module.id}
                     </div>

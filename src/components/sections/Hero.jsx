@@ -1,8 +1,45 @@
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs } from 'react-icons/si';
+import { useModal } from '../../context/ModalContext';
 
 const Hero = () => {
+  const { openModal } = useModal();
+
+  const handleEnrollClick = () => {
+    openModal(
+      'Enroll Now',
+      <div>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+          Ready to become a MERN stack master? Complete your registration to secure your spot.
+        </p>
+        <button 
+          onClick={() => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('[aria-label="Close"]')?.click();
+          }}
+          className="btn-primary w-full"
+        >
+          Proceed to Registration Form
+        </button>
+      </div>
+    );
+  };
+
+  const handleWatchDemo = () => {
+    const videoSection = document.getElementById('course');
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: 'smooth' });
+      // Find the video element and focus/play it
+      setTimeout(() => {
+        const video = videoSection.querySelector('video');
+        if (video) {
+          video.focus();
+          video.play().catch(e => console.log('Autoplay prevented', e));
+        }
+      }, 800);
+    }
+  };
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-24 overflow-hidden">
       {/* Background Elements */}
@@ -31,12 +68,13 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
-              <button className="btn-primary text-lg">
+              <button onClick={handleEnrollClick} className="btn-primary text-lg">
                 Enroll Now
               </button>
-              <button className="btn-outline text-lg flex items-center gap-2 group">
-                <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-white/10 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/20 transition-colors">
-                  <Play size={16} className="text-gray-700 dark:text-white group-hover:text-primary fill-transparent group-hover:fill-primary" />
+              <button onClick={handleWatchDemo} className="btn-outline text-lg flex items-center gap-2 group">
+                <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-white/10 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/20 transition-colors relative overflow-hidden">
+                  <span className="absolute inset-0 rounded-full bg-primary/20 scale-0 group-hover:scale-150 transition-transform duration-500 ease-out" />
+                  <Play size={16} className="text-gray-700 dark:text-white group-hover:text-primary fill-transparent group-hover:fill-primary relative z-10" />
                 </div>
                 Watch Demo
               </button>
@@ -81,32 +119,27 @@ const Hero = () => {
               className="absolute w-80 h-80 rounded-full border border-white/5 border-dashed"
             >
               {/* React */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center rotate-0" style={{ animation: 'spin-reverse 20s linear infinite' }}>
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center" style={{ animation: 'spin-reverse 20s linear infinite' }}>
                 <SiReact className="text-[#61DAFB] text-3xl" />
               </div>
               
               {/* Node.js */}
-              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center rotate-0" style={{ animation: 'spin-reverse 20s linear infinite' }}>
+              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center" style={{ animation: 'spin-reverse 20s linear infinite' }}>
                 <SiNodedotjs className="text-[#339933] text-3xl" />
               </div>
               
               {/* MongoDB */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center rotate-0" style={{ animation: 'spin-reverse 20s linear infinite' }}>
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center" style={{ animation: 'spin-reverse 20s linear infinite' }}>
                 <SiMongodb className="text-[#47A248] text-3xl" />
               </div>
               
               {/* Express */}
-              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center rotate-0" style={{ animation: 'spin-reverse 20s linear infinite' }}>
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-16 h-16 glass-card rounded-xl flex items-center justify-center" style={{ animation: 'spin-reverse 20s linear infinite' }}>
                 <SiExpress className="text-white text-3xl" />
               </div>
             </motion.div>
             
-            <style jsx>{`
-              @keyframes spin-reverse {
-                from { transform: translate(-50%, -50%) rotate(0deg); }
-                to { transform: translate(-50%, -50%) rotate(-360deg); }
-              }
-            `}</style>
+
           </motion.div>
           
         </div>

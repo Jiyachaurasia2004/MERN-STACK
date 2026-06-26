@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useModal } from '../../context/ModalContext';
+import SectionHeading from '../ui/SectionHeading';
 
 const Projects = () => {
+  const { openModal } = useModal();
   const projects = [
     { title: 'E-Commerce Platform', tech: 'MERN, Redux, Stripe', diff: 'Advanced', img: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop' },
     { title: 'Hospital Management', tech: 'React, Node, Socket.io', diff: 'Advanced', img: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000&auto=format&fit=crop' },
@@ -11,13 +14,31 @@ const Projects = () => {
     { title: 'Admin Dashboard', tech: 'MERN, Chart.js, JWT', diff: 'Advanced', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop' },
   ];
 
+  const handleProjectClick = (project) => {
+    openModal(
+      project.title,
+      <div className="space-y-4">
+        <img src={project.img} alt={project.title} className="w-full h-48 object-cover rounded-xl shadow-lg mb-6" />
+        <p className="text-gray-600 dark:text-gray-400">A comprehensive full-stack application built during the course.</p>
+        <div className="flex gap-2">
+          <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-semibold">{project.diff}</span>
+          <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs rounded-full font-semibold">{project.tech}</span>
+        </div>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+          <strong>Learning Outcome:</strong> Master data modeling, state management, and API integrations by building this project from scratch.
+        </p>
+      </div>
+    );
+  };
+
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <motion.h2 className="heading-lg mb-4">Project Showcase</motion.h2>
-          <motion.p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-500">Build these real-world projects during the course.</motion.p>
-        </div>
+        <SectionHeading
+          badge="Hands-On Portfolio"
+          title={<>Real-World <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-secondary">Projects</span> You'll Build</>}
+          subtitle="Don't just learn theory — ship production-ready applications. Each project is designed to land in your portfolio and impress recruiters."
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
@@ -31,7 +52,10 @@ const Projects = () => {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">{project.title}</h3>
                 <p className="text-sm text-secondary mb-6">{project.tech}</p>
-                <button className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors duration-500">
+                <button 
+                  onClick={() => handleProjectClick(project)}
+                  className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors duration-500 cursor-pointer"
+                >
                   View Details <ArrowUpRight size={16} />
                 </button>
               </div>
