@@ -1,51 +1,165 @@
-import { FaTwitter, FaLinkedin, FaGithub, FaYoutube } from 'react-icons/fa';
-
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaGlobe,
+  FaWhatsapp,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-[#0F172A] border-t border-gray-200 dark:border-white/5 pt-16 pb-8 transition-colors duration-500">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-secondary flex items-center justify-center font-bold text-white">M</div>
-              <span className="text-xl font-bold tracking-wider text-gray-900 dark:text-white transition-colors duration-500">MERN STACK</span>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 max-w-sm mb-6 transition-colors duration-500">Master the art of full-stack web development with our comprehensive, project-based curriculum.</p>
-            <div className="flex items-center gap-4">
-              <button onClick={() => window.open('https://twitter.com', '_blank')} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaTwitter size={18} /></button>
-              <button onClick={() => window.open('https://linkedin.com', '_blank')} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaLinkedin size={18} /></button>
-              <button onClick={() => window.open('https://github.com', '_blank')} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaGithub size={18} /></button>
-              <button onClick={() => window.location.href = 'mailto:hello@example.com'} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/20 transition-all"><FaYoutube size={18} /></button>
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="text-gray-900 dark:text-white font-bold mb-6 transition-colors duration-500">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><a href="#home" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#about" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">About Course</a></li>
-              <li><a href="#curriculum" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Curriculum</a></li>
-              <li><a href="#testimonials" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Testimonials</a></li>
-            </ul>
-          </div>
+  <footer className="bg-white dark:bg-[#0F172A] border-t border-gray-200 dark:border-gray-700 pt-16 pb-8 transition-colors duration-500">
+  <div className="container mx-auto px-6 max-w-7xl">
 
-          <div>
-            <h4 className="text-gray-900 dark:text-white font-bold mb-6 transition-colors duration-500">Legal</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Refund Policy</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Contact Us</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="border-t border-gray-200 dark:border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500 transition-colors duration-500">
-          <p>&copy; {new Date().getFullYear()} MERN Stack Course. All rights reserved.</p>
-          <p>Designed for future developers.</p>
-        </div>
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12">
+
+      {/* Contact */}
+      <div>
+        <h3 className="text-xl font-bold text-primary mb-6">
+          CONTACT
+        </h3>
+
+        <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+
+          <li className="flex items-start gap-3">
+            <FaPhoneAlt className="text-primary mt-1" />
+            <div>
+              <p> 9752740090, 7471112020</p>
+            </div>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <FaEnvelope className="text-primary mt-1" />
+            <a
+              href="mailto:hello@example.com"
+              className="hover:text-primary"
+            >
+               beangate.official@gmail.com
+            </a>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <FaMapMarkerAlt className="text-primary mt-1" />
+            <p>
+             Flat No. A-4/501, Kokta Transport Nagar,<br />
+Bhopal (M.P.) – 462022
+            </p>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <FaGlobe className="text-primary mt-1" />
+            <a
+              href="https://yourwebsite.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-primary"
+            >
+              https://beangates.com/
+            </a>
+          </li>
+        </ul>
       </div>
-    </footer>
+
+      {/* Useful Links */}
+      <div>
+        <h3 className="text-xl font-bold text-primary mb-6">
+          USEFUL LINKS
+        </h3>
+
+        <ul className="space-y-4">
+
+          <li>
+            <a href="#about" className="hover:text-primary">
+              About Course
+            </a>
+          </li>
+
+          <li>
+            <a href="#curriculum" className="hover:text-primary">
+              Curriculum
+            </a>
+          </li>
+
+          <li>
+            <a href="#projects" className="hover:text-primary">
+              Projects
+            </a>
+          </li>
+
+          <li>
+            <a href="#faq" className="hover:text-primary">
+              FAQ
+            </a>
+          </li>
+
+          <li>
+            <a href="#register" className="hover:text-primary">
+              Register Now
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      {/* About */}
+      <div>
+
+        <h3 className="text-xl font-bold text-primary mb-6">
+          MERN STACK ACADEMY
+        </h3>
+
+        <p className="text-gray-600 dark:text-gray-300 leading-8">
+          MERN Stack Academy provides industry-focused training in
+          MongoDB, Express.js, React.js and Node.js. Learn through
+          real-world projects, expert mentorship, interview preparation,
+          and placement assistance to become a professional Full Stack
+          Developer.
+        </p>
+
+        <div className="flex gap-4 mt-8">
+
+          <a
+            href="https://wa.me/919993376705"
+            target="_blank"
+            rel="noreferrer"
+            className="w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center hover:scale-110 transition"
+          >
+            <FaWhatsapp />
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            className="w-11 h-11 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition"
+          >
+            <FaLinkedin />
+          </a>
+
+          <a
+            href="https://github.com/Jiyachaurasia2004"
+            target="_blank"
+            rel="noreferrer"
+            className="w-11 h-11 rounded-full bg-gray-800 text-white flex items-center justify-center hover:scale-110 transition"
+          >
+            <FaGithub />
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div className="border-t border-gray-300 dark:border-gray-700 mt-12 pt-6 text-center text-gray-500">
+
+      © {new Date().getFullYear()} MERN Stack Academy. All Rights Reserved.
+
+    </div>
+
+  </div>
+</footer>
   );
 };
 export default Footer;

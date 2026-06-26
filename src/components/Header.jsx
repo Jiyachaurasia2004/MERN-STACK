@@ -100,12 +100,7 @@ const Header = () => {
             </ul>
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              <button className="text-sm font-medium text-gray-700 hover:text-primary dark:text-white dark:hover:text-secondary transition-colors">
-                Login
-              </button>
-              <button className="btn-primary text-sm px-5 py-2">
-                Register
-              </button>
+             
             </div>
           </nav>
 
@@ -148,10 +143,7 @@ const Header = () => {
                 </li>
               )})}
             </ul>
-            <div className="flex flex-col gap-3 mt-6">
-              <button className="btn-outline w-full text-center">Login</button>
-              <button className="btn-primary w-full text-center">Register</button>
-            </div>
+           
           </motion.div>
         )}
       </div>
